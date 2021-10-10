@@ -35,13 +35,13 @@ resource "digitalocean_database_cluster" "crypto_db" {
 # Generate DB within cluster
 resource "digitalocean_database_db" "chdb" {
   cluster_id = digitalocean_database_cluster.crypto_db.id
-  name       = var.mongodb_svc_user
+  name       = var.project_name
 }
 
 # Generate service account user for db - unfortunately permission cannot be done here
 resource "digitalocean_database_user" "svc" {
   cluster_id = digitalocean_database_cluster.crypto_db.id
-  name       = "foobar"
+  name       = var.mongodb_svc_user
 }
 
 # Add firewall rules to DB cluster to allow me to access
