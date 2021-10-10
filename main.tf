@@ -8,19 +8,19 @@ resource "digitalocean_project" "proj" {
 }
 
 # Generate # DB
-resource "digitalocean_database_cluster" "crypto_db" {
-  name       = local.ch_db_name
-  engine     = var.db_engine
-  version    = "4.4"
-  size       = "db-s-1vcpu-1gb"
-  region     = var.city_zone
-  node_count = 1
-}
+# resource "digitalocean_database_cluster" "crypto_db" {
+#   name       = local.ch_db_name
+#   engine     = var.db_engine
+#   version    = "4.4"
+#   size       = "db-s-1vcpu-1gb"
+#   region     = var.city_zone
+#   node_count = 1
+# }
 
 # Add resource to proj
-resource "digitalocean_project_resources" "proj_resources" {
-  project = digitalocean_project.proj.id
-  resources = [
-    digitalocean_database_cluster.crypto_db.urn
-  ]
-}
+# resource "digitalocean_project_resources" "proj_resources" {
+#   project = digitalocean_project.proj.id
+#   resources = [
+#     digitalocean_database_cluster.crypto_db.urn
+#   ]
+# }

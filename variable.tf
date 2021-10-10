@@ -37,7 +37,7 @@ variable "db_engine" {
 # }
 
 locals {
-  ch_db_name = "${var.db_engine}-${var.city_zone}-${var.project_name}"
+  ch_db_name = "${var.project_name}-${var.db_engine}-${var.city_zone}"
 }
 
 
