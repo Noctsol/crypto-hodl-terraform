@@ -1,2 +1,6 @@
-variable "do_token"{
-    }
+
+
+
+
+# Variables inherited from terraform cloud
+variable "do_token" {}
