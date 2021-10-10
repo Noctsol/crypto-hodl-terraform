@@ -26,20 +26,20 @@ variable "db_engine" {
     }
 }
 
-# variable "city_zone"{
-#     type = string
-#     description = "Specifies the city and zone the resource will be deployed to"
-#     default = "sfo3"
-#     validation {
-#       condition = contains(["sfo1", "sfo2", "sfo3", "nyc1", "nyc1"," nyc3"], var.city_zone)
-#       error_message = "city_zone value must be in sfo1, sfo2, sfo3, nyc1, nyc1, nyc3"
-#     }
-# }
+variable "env_type" {
+    type = string
+    description = "Defines environment type: dev, prod, etc"
+    default = "prod"
+}
+
 
 locals {
-  ch_db_name = "${var.project_name}-${var.db_engine}-${var.city_zone}"
+  prod_db_name = "${var.project_name}-${var.city_zone}-${var.env_type}-${var.db_engine}"
+  prod_vpc_name = "${var.project_name}-${var.city_zone}-${var.env_type}-vpc"
 }
 
 
 # Variables inherited from terraform cloud (secrets)
 variable "do_token" {}
+variable "my_ip" {}
+variable "mongodb_svc_user" {}
