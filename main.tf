@@ -39,7 +39,7 @@ resource "digitalocean_database_db" "chdb" {
 }
 
 # Generate service account user for db - unfortunately permission cannot be done here
-resource "digitalocean_database_user" "user-example" {
+resource "digitalocean_database_user" "svc" {
   cluster_id = digitalocean_database_cluster.crypto_db.id
   name       = "foobar"
 }
