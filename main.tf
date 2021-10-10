@@ -58,7 +58,6 @@ resource "digitalocean_database_firewall" "firewall" {
 resource "digitalocean_project_resources" "proj_resources" {
   project = digitalocean_project.proj.id
   resources = [
-    digitalocean_database_cluster.crypto_db.urn,
-    digitalocean_vpc.vpc.urn
+    digitalocean_database_cluster.crypto_db.urn
   ]
 }
