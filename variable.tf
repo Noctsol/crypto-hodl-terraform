@@ -44,7 +44,7 @@ variable "db_sku" {
 variable "node_count" {
     type = number
     description = "Amount of nodes getting generated"
-    default = 1
+    default = 3
 
     validation {
       condition = var.node_count == 1 || var.node_count == 3
