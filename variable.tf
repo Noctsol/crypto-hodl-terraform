@@ -17,7 +17,7 @@ variable "project_name" {
 
 variable "db_engine" {
     type = string
-    description = "Type of databse getting generated"
+    description = "Type of database getting generated"
     default = "mongodb"
 
     validation {
@@ -25,6 +25,21 @@ variable "db_engine" {
       error_message = "The db_engine value must be in pg (PostreSQL), mysql (MySQL), redis (REDIS) , or mongodb (MongoDB)."
     }
 }
+
+variable "db_sku" {
+    type = string
+    description = "The size/sku of the given database cluster (RAM, HDD, CPU, etc.)"
+    default = "db-s-1vcpu-1gb"
+
+    validation {
+      condition = contains([
+                            "db-s-1vcpu-1gb", "db-s-1vcpu-2gb", "db-s-2vcpu-4gb", "db-s-4vcpu-8gb",
+                            "db-s-6vcpu-16gb", "db-s-8vcpu-32gb", "db-s-16vcpu-64gb"
+                            ], var.db_sku)
+      error_message = "The db_engine value must be in pg (PostreSQL), mysql (MySQL), redis (REDIS) , or mongodb (MongoDB)."
+    }
+}
+
 
 variable "node_count" {
     type = number
@@ -38,14 +53,14 @@ variable "node_count" {
 }
 
 
-variable "version" {
+variable "mongo_version" {
     type = string
     description = "Amount of nodes getting generated"
     default = "4"
 
     validation {
-      condition = var.version == "4"
-      error_message = "Value can only be 4 right now since this is what DO supports"
+      condition = var.mongo_version == "4"
+      error_message = "Value can only be 4 right now since this is what DO supports."
     }
 }
 

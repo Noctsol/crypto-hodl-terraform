@@ -1,3 +1,13 @@
+/*
+
+Available DB slugs/skus: https://docs.digitalocean.com/reference/api/api-reference/#tag/Databases
+MONGODB INFO:            https://docs.digitalocean.com/products/databases/mongodb/
+  - Version info
+  - Regional availaility
+Terraform DO Docs:       https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs
+*/
+
+
 
 # Creating a Project (think Resource Group/Subscription from Azure)
 resource "digitalocean_project" "proj" {
@@ -18,7 +28,7 @@ resource "digitalocean_vpc" "vpc" {
 resource "digitalocean_database_cluster" "crypto_db" {
   name       = local.prod_db_name
   engine     = var.db_engine
-  version    = var.version
+  version    = var.mongo_version
   size       = "db-s-1vcpu-1gb"
   region     = var.city_zone
   node_count = var.node_count
