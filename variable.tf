@@ -40,7 +40,6 @@ variable "db_sku" {
     }
 }
 
-
 variable "node_count" {
     type = number
     description = "Amount of nodes getting generated"
