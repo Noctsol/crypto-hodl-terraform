@@ -21,7 +21,7 @@ resource "digitalocean_database_cluster" "crypto_db" {
   version    = "4.4"
   size       = "db-s-1vcpu-1gb"
   region     = var.city_zone
-  node_count = 4
+  node_count = 3
   private_network_uuid = digitalocean_vpc.vpc.id
 
   tags       = [
