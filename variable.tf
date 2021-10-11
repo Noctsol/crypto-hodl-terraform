@@ -26,6 +26,17 @@ variable "db_engine" {
     }
 }
 
+variable "node_count" {
+    type = number
+    description = "Amount of nodes getting generated"
+    default = 1
+
+    validation {
+      condition = var.node_count == 1 || var.node_count == 3
+      error_message = "Value can only be 1 or 3."
+    }
+}
+
 variable "env_type" {
     type = string
     description = "Defines environment type: dev, prod, etc"
