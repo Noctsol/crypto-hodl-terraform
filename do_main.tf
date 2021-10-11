@@ -9,6 +9,8 @@ Links/Info
     - Version info
     - Regional availaility
   Terraform DO Docs:       https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs
+
+  - Updating and downgrading Mongo Standy nodes has no data loss
 */
 
 
