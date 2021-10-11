@@ -1,10 +1,14 @@
 /*
+Created Date - 2021-10-09
+Summary:
+  Controls resources for digital ocean
 
-Available DB slugs/skus: https://docs.digitalocean.com/reference/api/api-reference/#tag/Databases
-MONGODB INFO:            https://docs.digitalocean.com/products/databases/mongodb/
-  - Version info
-  - Regional availaility
-Terraform DO Docs:       https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs
+Links/Info
+  Available DB slugs/skus: https://docs.digitalocean.com/reference/api/api-reference/#tag/Databases
+  MONGODB DO INFO:         https://docs.digitalocean.com/products/databases/mongodb/
+    - Version info
+    - Regional availaility
+  Terraform DO Docs:       https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs
 */
 
 
@@ -29,7 +33,7 @@ resource "digitalocean_database_cluster" "crypto_db" {
   name       = local.prod_db_name
   engine     = var.db_engine
   version    = var.mongo_version
-  size       = "db-s-1vcpu-1gb"
+  size       = var.db_sku
   region     = var.city_zone
   node_count = var.node_count
   private_network_uuid = digitalocean_vpc.vpc.id
