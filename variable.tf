@@ -37,6 +37,18 @@ variable "node_count" {
     }
 }
 
+
+variable "version" {
+    type = string
+    description = "Amount of nodes getting generated"
+    default = "4"
+
+    validation {
+      condition = var.version == "4"
+      error_message = "Value can only be 4 right now since this is what DO supports"
+    }
+}
+
 variable "env_type" {
     type = string
     description = "Defines environment type: dev, prod, etc"
